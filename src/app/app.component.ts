@@ -53,11 +53,15 @@ export class AppComponent {
   }
 
   send(){
+    const c = new Date();
     if ( $('#textForm').val() === '' ){
       alert('Campo de texto vacio \nIngrese el texto o considere una estructura de formulario sin este componente');
       return;
     }
-    this.history.push(this.newVal);
+    this.history.push({
+      id: Number('' + c.getFullYear() + c.getDate() + c.getMonth() + c.getHours()  + c.getMinutes() + c.getSeconds() + c.getMilliseconds()),
+      format: this.newVal
+    });
     this.print = true;
     this.formConfig = {
       text: false,
@@ -65,10 +69,6 @@ export class AppComponent {
       range: false
     };
     console.log($('#undoBtn').text('Refresh'));
-  }
-
-  viewHistory(){
-    alert(this.history);
   }
 }
 

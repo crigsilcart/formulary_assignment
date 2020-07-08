@@ -15,6 +15,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
 import { PrintComponent } from './components/print/print.component';
+import { HistoryComponent } from './components/history/history.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PrintComponent } from './components/print/print.component';
     TextComponent,
     DateComponent,
     RangeComponent,
-    PrintComponent
+    PrintComponent,
+    HistoryComponent
   ],
   imports: [
     BrowserModule,

@@ -31,9 +31,20 @@
             <label class="form-check-label" for="inlineCheckbox3">Rango</label>
           </div>
         </div>
-        <div class="container">
-          <button class="btn btn-link btn-sm float-left px-5" id="viewHistory" (click)="viewHistory()" >Ver historial</button>
-          <button class="btn btn-primary float-right px-5" id="submitBtn" (click)="createForm($event)" >Crear</button>
+        <div>
+          <button 
+            class="btn btn-link btn-sm mt-3" 
+            id="viewHistory" 
+            data-toggle="modal" 
+            data-target="#historyModal" >
+            Ver historial
+          </button>
+          <button 
+            class="btn btn-primary float-right px-5" 
+            id="submitBtn" 
+            (click)="createForm($event)">
+            Crear
+          </button>
         </div>
       </div>
     </div>
@@ -49,4 +60,12 @@
     <button class="btn btn-danger px-5 mt-2" id="undoBtn" (click)="undo($event)">Volver</button>
     <button class="btn btn-success px-5 mt-2 float-right" id="sendBtn" (click)="send()" *ngIf="!this.print">Enviar</button>
   </div>
+  <app-history 
+    [historyArray] = "this.history" 
+    class="modal fade" 
+    id="historyModal" 
+    tabindex="-1" 
+    role="dialog" 
+    aria-hidden="true">
+  </app-history>
 </div>
