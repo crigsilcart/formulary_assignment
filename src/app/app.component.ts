@@ -49,6 +49,9 @@ export class AppComponent {
   }
 
   presetValues(e, field){
+    console.log(e);
+    e = field === 'texto' ? decodeURI(e) : e;
+    console.log(e);
     this.newVal[field] = e;
   }
 

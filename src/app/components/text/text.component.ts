@@ -17,6 +17,6 @@ export class TextComponent implements OnInit {
   }
   valuechange(e){
 
-    this.textChanged.emit(e.target.value);
+    this.textChanged.emit(encodeURI(e.target.value));
   }
 }

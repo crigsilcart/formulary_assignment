@@ -1,27 +1,36 @@
 # FormCreator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.7.
+Este proyecto fue generado [Angular CLI](https://github.com/angular/angular-cli) versión 9.1.7.
 
-## Development server
+## Descripción
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+El presente proyecto corresponde a un desarrollo de frontend implementado en el framework AngularJS (versión 9.1.7). Acá se desarrolla la creación dinámica de un formulario con tres co9mponentes: Texto, Fecha y Rango
 
-## Code scaffolding
+► Texto: Despliega un campo para diligenciar un texto específico definido por el susuario (si se desea incluir este texto no podrá ser vacio). El campo de texto es codificado para evitar posibles problemas con caracteres especiales
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+► Fecha: Se dispone de un selector de Angular-Material para establecer la fecha. Se muestra la fecha actual como valor por defecto.
 
-## Build
+► Rango: Un Slider de Angular-Material permite generar un valor entre 1 y 10 con saltos de 2.5
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Uso
 
-## Running unit tests
+1) Seleccione los campoas que tendra el formulario (texto, Fecha y Rango)
+2) complete la información en cada componente
+3) envie la información 
+ → Se desplegará un nuevo componente con la información introducida
+ → puede revisar la información histórica consignada en la presente sesión en el link Ver Historial (cada entrada posee un identificador único basado en el tiempo de creación (resolución en milisegundos))
+4) Cualquier campo no seleccionado para diligenciar mostrará un valor Not Defined por defecto
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+## Tecnologías utilizadas
+- Angular CLI
+- Angular Material (https://material.angular.io/)
+- Bootstrap (https://getbootstrap.com/)
+- Git (y Github para manejo de repositorio y versionado)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## entorno de codificación
+- vsCode
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+## Para ejecutar
+Versión Producción: Acceder a la ruta /dist/formCreator/ y ejecutar el archivo index.html
+Versión Desarrollo: En terminal o Command prompt sobre la ruta raiz del proyecto ejecutar { ng serve } o { npm start }
