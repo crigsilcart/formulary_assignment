@@ -9,20 +9,21 @@ import { MatSliderChange } from '@angular/material/slider';
   ]
 })
 export class RangeComponent implements OnInit {
-  sliderVal = 5;
+  sliderVal = '5';
 
-  @Output() rangeChanged: EventEmitter<number>;
+  @Output() rangeChanged: EventEmitter<string>;
 
   constructor() {
     this.rangeChanged = new EventEmitter();
   }
 
   ngOnInit(): void {
+    this.rangeChanged.emit(this.sliderVal);
   }
 
   onInputChange(event: MatSliderChange){
-    this.sliderVal = event.value;
-    this.rangeChanged.emit(event.value);
+    this.sliderVal = event.value.toString();
+    this.rangeChanged.emit(this.sliderVal);
   }
 
 }

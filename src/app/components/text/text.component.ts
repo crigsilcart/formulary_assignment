@@ -9,14 +9,14 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class TextComponent implements OnInit {
 
   @Output() textChanged: EventEmitter<string>;
-  constructor() { 
+  constructor() {
     this.textChanged = new EventEmitter();
   }
 
   ngOnInit(): void {
   }
-
   valuechange(e){
+
     this.textChanged.emit(e.target.value);
   }
 }

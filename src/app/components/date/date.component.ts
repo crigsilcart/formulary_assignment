@@ -1,6 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 
+declare var $: any;
+
 @Component({
   selector: 'app-date',
   templateUrl: './date.component.html',
@@ -13,18 +15,22 @@ export class DateComponent implements OnInit {
   display = false;
   datePicked = null;
 
-  @Output() dateChanged: EventEmitter<Date>;
-
+  @Output() dateChanged: EventEmitter<string>;
 
   constructor() {
     this.dateChanged = new EventEmitter();
   }
 
   ngOnInit(): void {
+    // const today = ;
+    const today = new Date();
+    $('#dateInput').val(today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear());
+    this.dateChanged.emit(new Intl.DateTimeFormat('eng-GB').format(today));
   }
 
   onDate(e){
-    this.dateChanged.emit(e.value);
+    console.log(e.value === null);
+    this.dateChanged.emit(new Intl.DateTimeFormat('eng-GB').format(e.value));
   }
 
 }

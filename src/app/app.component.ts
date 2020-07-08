@@ -14,25 +14,38 @@ export class AppComponent {
     range: false
   };
   newVal = {
-    texto: '',
-    fecha: '',
-    cantidad: ''
+    texto: 'Not Defined',
+    fecha: 'Not Defined',
+    cantidad: 'Not Defined'
   };
+  history = [];
   submit = false;
+  print = false;
 
   paramsFormCreate(event){
     this.formConfig[event.target.value] = event.target.checked;
   }
 
   createForm(e){
+    if ( $('.form-check-input:checked').length === 0){
+      alert('Seleccione al menos un componente para el formulario');
+      return;
+    }
     this.submit = true;
     $(e.target).addClass('unableBtn');
     $('.form-check-inline').addClass('unableBtn');
   }
   undo(e){
     this.submit = false;
+    if ( this.print ) { this.print = false; }
     $('.form-check-inline').removeClass('unableBtn');
     $('#submitBtn').removeClass('unableBtn');
+    $('.form-check-input').prop('checked', false);
+    this.newVal = {
+      texto: 'Not Defined',
+      fecha: 'Not Defined',
+      cantidad: 'Not Defined'
+    };
   }
 
   presetValues(e, field){
@@ -40,8 +53,22 @@ export class AppComponent {
   }
 
   send(){
-    console.log(this.newVal);
+    if ( $('#textForm').val() === '' ){
+      alert('Campo de texto vacio \nIngrese el texto o considere una estructura de formulario sin este componente');
+      return;
+    }
+    this.history.push(this.newVal);
+    this.print = true;
+    this.formConfig = {
+      text: false,
+      date: false,
+      range: false
+    };
+    console.log($('#undoBtn').text('Refresh'));
   }
 
+  viewHistory(){
+    alert(this.history);
+  }
 }
 

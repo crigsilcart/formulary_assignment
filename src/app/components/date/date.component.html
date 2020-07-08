@@ -1,9 +1,9 @@
 <div class="card-body">
-    <div class="card-title">Ingrese Fecha</div>
+    <div class="card-title"><span class="mandatoryField">*</span> Ingrese Fecha</div>
     <div class="card-text border rounded">
-        <input class="dateInput border-0" matInput [matDatepicker]="picker" (dateInput)="onDate($event)">
         <mat-datepicker-toggle class="datePopup" matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker ></mat-datepicker>
+        <input class="dateInput border-0 text-center" id="dateInput" matInput [matDatepicker]="picker" (dateInput)="onDate($event)">
     </div>
       
 </div>

@@ -2,13 +2,13 @@
   <div class="container mt-3 p-0">
     <div class="card">
      <div class="card-header">
-       Seleccione los campos que tendrá el formulario
+       <span class="mandatoryField">*</span> Seleccione los campos que tendrá el formulario
      </div>
       <div class="card-body">
         <div>
           <div class="form-check form-check-inline">
             <input (change)="paramsFormCreate($event)" 
-              class="form-check-input" 
+              class="form-check-input CBstyle" 
               type="checkbox" 
               id="inlineCheckbox1" 
               value="text">
@@ -16,7 +16,7 @@
           </div>
           <div class="form-check form-check-inline">
             <input (change)="paramsFormCreate($event)" 
-            class="form-check-input" 
+            class="form-check-input CBstyle" 
             type="checkbox" 
             id="inlineCheckbox2" 
             value="date">
@@ -24,7 +24,7 @@
           </div>
           <div class="form-check form-check-inline">
             <input (change)="paramsFormCreate($event)"
-            class="form-check-input" 
+            class="form-check-input CBstyle" 
             type="checkbox" 
             id="inlineCheckbox3" 
             value="range">
@@ -32,18 +32,21 @@
           </div>
         </div>
         <div class="container">
+          <button class="btn btn-link btn-sm float-left px-5" id="viewHistory" (click)="viewHistory()" >Ver historial</button>
           <button class="btn btn-primary float-right px-5" id="submitBtn" (click)="createForm($event)" >Crear</button>
         </div>
       </div>
     </div>
   </div>
-  <div class="container p-3 border-darken-1" *ngIf="this.submit">
+  <div class="container p-0 mt-3" *ngIf="this.submit">
     <div class="card-group">
       <app-text (textChanged)="presetValues($event,'texto')" class="card" *ngIf="this.formConfig.text"></app-text>
       <app-date (dateChanged)="presetValues($event,'fecha')" class="card" *ngIf="this.formConfig.date"></app-date>
       <app-range (rangeChanged)="presetValues($event,'cantidad')" class="card" *ngIf="this.formConfig.range"></app-range>
+
     </div>
+    <app-print class="card" [form]="this.newVal" *ngIf="this.print"></app-print>
     <button class="btn btn-danger px-5 mt-2" id="undoBtn" (click)="undo($event)">Volver</button>
-    <button class="btn btn-success px-5 mt-2 float-right" id="sendBtn" (click)="send()">Enviar</button>
+    <button class="btn btn-success px-5 mt-2 float-right" id="sendBtn" (click)="send()" *ngIf="!this.print">Enviar</button>
   </div>
 </div>

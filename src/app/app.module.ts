@@ -14,13 +14,15 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSliderModule } from '@angular/material/slider';
+import { PrintComponent } from './components/print/print.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TextComponent,
     DateComponent,
-    RangeComponent
+    RangeComponent,
+    PrintComponent
   ],
   imports: [
     BrowserModule,
